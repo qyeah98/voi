@@ -240,7 +240,7 @@ EOT
 [^7]: [Alorand REST API](https://developer.algorand.org/docs/rest-apis/algod/)
 
 
-Check `Prometheus config file` status:
+Check `Prometheus config file`:
 ``` bash
 sudo cat /etc/prometheus/prometheus.yml
 ```
@@ -404,13 +404,13 @@ Dec 26 04:15:18 voi-node-testnet prometheus-node-exporter[69211]: ts=2023-12-26T
 
 
 # Set up Grafana Dashboard
+> [!WARNING]
+> If you set `ufw` at your server, You should open Grafana port (default: `3000`).  
+> `ufw allow 3000/tcp`
 
 > [!IMPORTANT]
 > The following steps should be executed from your **Client, NOT server**.  
 
-> [!WARNING]
-> If you set `ufw`, You should open Grafana port (default: `3000`).  
-> `ufw allow 3000/tcp`
 
 ## Access your Grafana
 Launch browser and go to `http://<YOUR-SERVER-GLOBAL-IP>:3000/`
