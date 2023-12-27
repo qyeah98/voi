@@ -223,7 +223,8 @@ Dec 26 04:15:18 voi-node-testnet prometheus-node-exporter[69211]: ts=2023-12-26T
 
 ## Add Voi metrics target to Prometheus config file
 Run this command:
-```sudo sh -c "cat << EOT >> /etc/prometheus/prometheus.yml
+```
+sudo sh -c "cat << EOT >> /etc/prometheus/prometheus.yml
 
   - job_name: voi
     static_configs:
