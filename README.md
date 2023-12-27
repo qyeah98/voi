@@ -229,7 +229,7 @@ Run this command:
     static_configs:
       - targets: ['localhost:8080']
 EOT"
-
+```
 > [!TIP]
 > The port `8080` is REST API port.  
 > You can get accounts, assets and block info by using REST API. [^7]
