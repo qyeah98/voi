@@ -104,7 +104,7 @@ sudo wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 sudo echo "deb https://packages.grafana.com/oss/deb stable main" > grafana.list
 sudo mv grafana.list /etc/apt/sources.list.d/grafana.list
 
-sudo apt-get update && apt-get install -y grafana
+sudo apt-get update && sudo apt-get install -y grafana
 ```
 
 Check if `grafana` has been installed:
@@ -126,6 +126,7 @@ ii  grafana        10.2.3       amd64        Grafana
 Run this command:
 ``` bash
 sudo systemctl enable grafana-server.service prometheus.service prometheus-node-exporter.service
+sudo systemctl start grafana-server.service prometheus.service prometheus-node-exporter.service
 ```
 
 1. Check if `Grafana` status is `active (running)`:
@@ -222,13 +223,13 @@ Dec 26 04:15:18 voi-node-testnet prometheus-node-exporter[69211]: ts=2023-12-26T
 
 ## Add Voi metrics target to Prometheus config file
 Run this command:
-``` bash
-sudo cat << EOT >> /etc/prometheus/prometheus.yml
+```
+sudo sh -c "cat << EOT >> /etc/prometheus/prometheus.yml
 
   - job_name: voi
     static_configs:
       - targets: ['localhost:8080']
-EOT
+EOT"
 ```
 > [!TIP]
 > The port `8080` is REST API port.  
